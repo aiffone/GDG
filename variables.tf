@@ -3,9 +3,9 @@ variable "region" {
 }
 
 variable "zone" {
-  default = "us-east1-d"
+  default = "us-east1-c"
 }
 
 variable "project_id" {
-  default = "qwiklabs-gcp-02-9b4a505272da"
+  default = "qwiklabs-gcp-03-89dd7a7cec72"
 }
