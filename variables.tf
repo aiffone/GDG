@@ -7,5 +7,5 @@ variable "zone" {
 }
 
 variable "project_id" {
-  default = "qwiklabs-gcp-03-89dd7a7cec72"
+  default = "qwiklabs-gcp-02-b42bcbffd311"
 }

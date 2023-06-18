@@ -16,7 +16,7 @@ resource "google_compute_instance" "tf-instance-1" {
   }
 
   network_interface {
-    network = "tf-vpc-596621"
+    network = "tf-vpc-455759"
     subnetwork = "subnet-01"
     access_config {
       // Optional access configuration
@@ -48,7 +48,7 @@ resource "google_compute_instance" "tf-instance-2" {
   }
 
   network_interface {
-    network = "tf-vpc-596621"
+    network = "tf-vpc-455759"
     subnetwork = "subnet-02"
     access_config {
       // Optional access configuration
@@ -63,10 +63,10 @@ resource "google_compute_instance" "tf-instance-2" {
 }
 
 
-# instance 3
+# # instance 3
 
-# resource "google_compute_instance" "tf-instance-365228" {
-#   name         = "tf-instance-365228"
+# resource "google_compute_instance" "tf-instance-404161" {
+#   name         = "tf-instance-404161"
 #   machine_type = "n1-standard-2"
 #   zone         = "us-east1-c"
 

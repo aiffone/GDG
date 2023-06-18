@@ -1,12 +1,7 @@
 provider "google" {
-  project     = "qwiklabs-gcp-02-9b4a505272da"
+  project     = "qwiklabs-gcp-02-b42bcbffd311"
   region      = "us-east1"
-}
-
-provider "google" {
-  project     = "qwiklabs-gcp-03-89dd7a7cec72"
-  region      = "us-east1"
-  zone        = "us-east1-d"
+  zone        = "us-east1-c"
 }
 
 module "intances" {
@@ -19,7 +14,7 @@ module "storage" {
 
 terraform {
   backend "gcs" {
-    bucket  = "tf-bucket-943027"
+    bucket  = "tf-bucket-842413"
     prefix  = "terraform/state"
   }
 }
@@ -29,8 +24,8 @@ module "vpc" {
     source  = "terraform-google-modules/network/google"
     version = "~> 6.0.0"
 
-    project_id   = "qwiklabs-gcp-03-89dd7a7cec72"
-    network_name = "tf-vpc-596621"
+    project_id   = "qwiklabs-gcp-02-b42bcbffd311"
+    network_name = "tf-vpc-455759"
     routing_mode = "GLOBAL"
 
     subnets = [
@@ -52,11 +47,11 @@ module "vpc" {
 
 }
 
-# firewall
+# # firewall
 
-resource "google_compute_firewall" "default" {
-  name    = "tf-firewall"
-  network = google_compute_network.tf-vpc-596621
+resource "google_compute_firewall" "tf-firewall" {
+  name          = "tf-firewall"
+  network       = "projects/qwiklabs-gcp-02-b42bcbffd311/global/networks/tf-vpc-455759"
 
   allow {
     protocol = "tcp"
@@ -66,10 +61,13 @@ resource "google_compute_firewall" "default" {
     protocol = "tcp"
     ports    = ["80"]
   }
+
   source_ranges = ["0.0.0.0/0"]
-  source_tags = ["web"]
+  source_tags   = ["web"]
 }
 
-resource "google_compute_network" "default" {
-  name = "tf-vpc-596621"
-}
+
+
+
+
+
